@@ -45,13 +45,16 @@ public class Hotel {
         return null;
     }
 
-    //Método para realizar una reserva.
-    // Comprueba si hay habitaciones disponibles, si existe el cliente y si las fechas son coherentes.
-    // Si encuentra una habitación disponible del tipo solicitado,
-    // crea una nueva reserva y la añade a la lista de reservas y devuelve el número de la habitación reservada.
-    // Antes de crear la reserva, comprueba si el cliente pasa a ser VIP tras la nueva reserva,
-    // en caso de que haya realizado más de 3 reservas en el último año.
 
+
+    /**
+     * Gestiona la reserva de habitación
+     * @param clienteId
+     * @param tipo
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @return disponibilidad
+     */
     public int reservarHabitacion(int clienteId, String tipo, LocalDate fechaEntrada, LocalDate fechaSalida) {
         // Comprobamos si hay habitaciones en el hotel
         return disponibilidad(clienteId, tipo, fechaEntrada, fechaSalida);
@@ -59,6 +62,14 @@ public class Hotel {
 
     }
 
+    /**
+     * Comprueba si hay habitaciones disponibles en el hotel
+     * @param clienteId
+     * @param tipo
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @return si existe el cliente continua el proceso de reserva si no  EL PROGRAMA NO FUNCIONA
+     */
     private int disponibilidad(int clienteId, String tipo, LocalDate fechaEntrada, LocalDate fechaSalida) {
         if(!habitaciones.isEmpty()) {
             //comprobamos si existe el cliente
@@ -69,6 +80,14 @@ public class Hotel {
         }
     }
 
+    /**
+     * Comprobar si existe el cliente
+     * @param clienteId
+     * @param tipo
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @return si existe cliente valida las fechas
+     */
     private int existeCliente(int clienteId, String tipo, LocalDate fechaEntrada, LocalDate fechaSalida) {
         if(this.clientes.get(clienteId) != null) {
             Cliente cliente = this.clientes.get(clienteId);
@@ -80,6 +99,14 @@ public class Hotel {
         }
     }
 
+    /**
+     * Comprobar la validez de fechas
+     * @param tipo
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @param cliente
+     * @return si las fechas es válida comprobar la disponiblidad
+     */
     private int validezFechas(String tipo, LocalDate fechaEntrada, LocalDate fechaSalida, Cliente cliente) {
         if(fechaEntrada.isBefore(fechaSalida)) {
             //buscamos una habitación disponible
@@ -91,12 +118,12 @@ public class Hotel {
     }
 
     /**
-     * Comprobar la disponiblida
+     * Comprobar la disponibilidad de la habitación en las fechas dadas
      * @param tipo
      * @param fechaEntrada
      * @param fechaSalida
      * @param cliente
-     * @return
+     * @return crear la reserva y añadir al cliente Vip si cumple requisitos
      */
     private int comprobarDisponibilidad(String tipo, LocalDate fechaEntrada, LocalDate fechaSalida, Cliente cliente) {
         for(Habitacion habitacion : habitaciones) {

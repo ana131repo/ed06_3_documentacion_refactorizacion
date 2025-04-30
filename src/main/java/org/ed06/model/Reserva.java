@@ -2,6 +2,9 @@ package org.ed06.model;
 
 import java.time.LocalDate;
 
+/**
+ * Sección específica de la reservas
+ */
 public class Reserva {
     private final int id;
     private final Habitacion habitacion;
@@ -43,8 +46,12 @@ public class Reserva {
         return precioTotal;
     }
 
-    // Calcula el precio total de la reserva. Para calcular el precio total, se debe calcular el precio base de la habitación por el número de noches de la reserva. En el caso de que el cliente sea vip, se aplicará un descuento del 10%. Además, si el intervalo de fechas es mayor a 7 días, se aplicará un descuento adicional del 5%.
-    // Devuelve precio total de la reserva
+    /** Calcula el precio total de la reserva.
+     *  En el caso de que el cliente sea vip, se aplicará un descuento del 10%. Además, si el intervalo de fechas es mayor a 7 días, se aplicará un descuento adicional del 5%.
+     *
+     * @return el precio total de la reserva
+     */
+
     public double calcularPrecioFinal() {
         //calculamos los días de la reserva
         int n = fechaFin.getDayOfYear() - fechaInicio.getDayOfYear();
@@ -66,6 +73,9 @@ public class Reserva {
         return pf;
     }
 
+    /**
+     * Mostrar la información de la reserva
+     */
     public void mostrarReserva() {
         System.out.println("Reserva #" + id);
         System.out.println("Habitación #" + habitacion.getNumero() + " - Tipo: " + habitacion.getTipo() + " - Precio base: " + habitacion.getPrecioBase());

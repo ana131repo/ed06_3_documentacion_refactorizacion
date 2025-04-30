@@ -1,5 +1,8 @@
 package org.ed06.model;
 
+/**
+ * Sección específica de la habitación
+ */
 public class Habitacion {
     private final int numero;
     private final String tipo; // "SIMPLE", "DOBLE", "SUITE"
@@ -31,7 +34,10 @@ public class Habitacion {
         return disponible;
     }
 
-    // Método que usa un switch para determinar el número máximo de huéspedes
+    /** Metodo que usa un switch para determinar el número máximo de huéspedes
+     * @return número máximo de huespedes - int
+     */
+
     public double obtenerNumMaxHuespedes() {
         return switch (tipo) {
             case "SIMPLE" -> 1;
@@ -42,6 +48,10 @@ public class Habitacion {
         };
     }
 
+    /**
+     * Cambiar el estado de la habitación
+     * Reservada / Disponible
+     */
     public void reservar() {
         if (disponible) {
             System.out.println("Habitación #" + numero + " ya reservada");

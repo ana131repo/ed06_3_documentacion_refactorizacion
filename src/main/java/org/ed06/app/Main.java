@@ -7,6 +7,10 @@ import org.ed06.model.Hotel;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Gestor de reservar de un hotel
+ *
+ */
 public class Main {
     static final Scanner scanner = new Scanner(System.in);
     // Definimos constantes para las diferentes opciones del menú
@@ -17,6 +21,7 @@ public class Main {
     private static final int LISTAR_CLIENTES = 21;
     private static final int REGISTRAR_CLIENTE = 22;
     private static final int SALIR = 0;
+
 
     public static void main(String[] args) {
         // Variales locales
@@ -147,6 +152,9 @@ public class Main {
         }
     }
 
+    /**
+     * Menú de la gestión de reservas
+     */
     private static void mostrarMenu() {
         System.out.println("Menú:");
         System.out.println("1. Registrar habitación");
