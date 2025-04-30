@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
+    static final Scanner scanner = new Scanner(System.in);
     // Definimos constantes para las diferentes opciones del menú
     private static final int REGISTRAR_HABITACION = 1;
     private static final int LISTAR_HABITACIONES_DISPONIBLES = 2;

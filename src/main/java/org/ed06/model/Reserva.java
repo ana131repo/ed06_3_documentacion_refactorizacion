@@ -1,15 +1,14 @@
 package org.ed06.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Reserva {
-    private int id;
-    private Habitacion habitacion;
-    private Cliente cliente;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
-    private double precioTotal;
+    private final int id;
+    private final Habitacion habitacion;
+    private final Cliente cliente;
+    private final LocalDate fechaInicio;
+    private final LocalDate fechaFin;
+    private final double precioTotal;
 
     public Reserva(int id, Habitacion habitacion, Cliente cliente, LocalDate fechaInicio, LocalDate fechaFin) {
         this.id = id;
@@ -50,9 +49,8 @@ public class Reserva {
         //calculamos los días de la reserva
         int n = fechaFin.getDayOfYear() - fechaInicio.getDayOfYear();
         // Calculamos el precio base de la habitación por el número de noches de la reserva
-        double pb = habitacion.getPrecioBase() * n;
         // Declaramos la variable para almacenar el precio final
-        double pf = pb;
+        double pf = habitacion.getPrecioBase() * n;
 
         // Si el cliente es VIP, aplicamos un descuento del 10%
         if (cliente.esVip) {
