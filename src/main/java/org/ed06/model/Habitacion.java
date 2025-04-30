@@ -7,8 +7,6 @@ public class Habitacion {
     private final int numero;
     private final String tipo; // "SIMPLE", "DOBLE", "SUITE"
     private final double precioBase;
-
-    //Todo pendiente cambiar la forma de gestionar la disponibilidad en base a las fechas de las reservas
     private boolean disponible;
 
     public Habitacion(int numero, String tipo, double precioBase) {
@@ -18,18 +16,30 @@ public class Habitacion {
         this.disponible = true;
     }
 
+    /**
+     * @return el número de habitación
+     */
     public int getNumero() {
         return numero;
     }
 
+    /**
+     * @return el tipo de habitación
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * @return el precio base de la habitación
+     */
     public double getPrecioBase() {
         return precioBase;
     }
 
+    /**
+     * @return true (disponible) / false (reservada)
+     */
     public boolean isDisponible() {
         return disponible;
     }

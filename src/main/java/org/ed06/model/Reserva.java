@@ -22,26 +22,44 @@ public class Reserva {
         this.precioTotal = calcularPrecioFinal();
     }
 
+    /**
+     * @return id del clientes
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @return datos de las habitación
+     */
     public Habitacion getHabitacion() {
         return habitacion;
     }
 
+    /**
+     * @return datos del clientes
+     */
     public Cliente getCliente() {
         return cliente;
     }
 
+    /**
+     * @return datos de la fecha de inicio
+     */
     public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
+    /**
+     * @return datos de la fecha fin
+     */
     public LocalDate getFechaFin() {
         return fechaFin;
     }
 
+    /**
+     * @return el precio total
+     */
     public double getPrecioTotal() {
         return precioTotal;
     }

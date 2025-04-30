@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * Gestor de reservar de un hotel
+ * Gestor de reservas de un hotel
  *
  */
 public class Main {

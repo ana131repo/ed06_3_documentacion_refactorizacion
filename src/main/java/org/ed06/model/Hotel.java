@@ -3,6 +3,9 @@ package org.ed06.model;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Sección principal de las reservas del Hotel
+ */
 public class Hotel {
 
     private final Map<Integer,Cliente> clientes = new HashMap<>();
@@ -13,13 +16,21 @@ public class Hotel {
 
     }
 
-    // Método para agregar una nueva habitación al hotel
+    /**Agregar una nueva habitación al hotel
+     * @param tipo
+     * @param precioBase
+     */
+
     public void registrarHabitacion(String tipo, double precioBase) {
         Habitacion habitacion = new Habitacion(habitaciones.size() + 1, tipo, precioBase);
         habitaciones.add(habitacion);
         reservasPorHabitacion.put(habitacion.getNumero(), new ArrayList<>());
     }
 
+    /** Registrar habitaciones
+     * @param tipos
+     * @param preciosBase
+     */
     public void registrarHabitaciones(List<String> tipos, List<Double> preciosBase) {
         for(int i = 0; i < tipos.size(); i++) {
             Habitacion habitacion = new Habitacion(habitaciones.size() + 1, tipos.get(i), preciosBase.get(i));
@@ -28,6 +39,9 @@ public class Hotel {
         }
     }
 
+    /**
+     * Mostrar un listado de las habitaciones disponibles
+     */
     public void listarHabitacionesDisponibles() {
         for(Habitacion habitacion : habitaciones) {
             if(habitacion.isDisponible()) {
@@ -36,6 +50,10 @@ public class Hotel {
         }
     }
 
+    /**
+     * @param numero
+     * @return el número de habitación
+     */
     public Habitacion getHabitacion(int numero) {
         for(Habitacion habitacion : habitaciones) {
             if(habitacion.getNumero() == numero) {
